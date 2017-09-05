@@ -51,10 +51,10 @@ public class TaskModel {
     }
 
     public int getTaskId(String name) {
-        if(name != null && name.compareTo("none") != 0){
-            return getTask(name).getId();
+        if( name.compareTo("none") == 0){
+            return -1;
         }
-        return -1;
+        return getTask(name).getId();
     }
 
     public String addTask(int idFather, Date creation, Date fin, String desc, String name){
@@ -64,8 +64,7 @@ public class TaskModel {
     }
 
     public void delTask(int id) {
-        //TODO delete father clean
-
+        //id != idfather
         if (id == -1) {
             for (int i=0; i <listTask.size();++i){
                 if ( listTask.get(i).getIdFather() == id){
