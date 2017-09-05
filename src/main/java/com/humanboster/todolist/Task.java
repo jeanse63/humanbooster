@@ -1,42 +1,75 @@
-package com.humanboster.todolist;
+package com.humanbooster.todolist;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-public class Task{
-    private String title;
-    private String dateDebut;
-    private String dateFin;
-    private List<Task> sousTache = new ArrayList<Task>();
+public class Task {
+    private int idFather;
 
-    public Task(String title, String dateDebut, String dateFin) {
-        this.title = title;
-        this.dateDebut = dateDebut;
-        this.dateFin = dateFin;
+    private int id;
+    private Date creation;
+    private Date fin;
+    private String desc;
+    private String name;
+
+
+
+
+    public Task(int idFather, int id, Date creation, Date fin, String desc, String name) {
+        this.idFather = idFather;
+        this.id = id;
+        this.creation = creation;
+        this.fin = fin;
+        this.desc = desc;
+        this.name = name;
     }
 
-    public String getTitle() {
-        return title;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public String getDateDebut() {
-        return dateDebut;
+    public String getName() {
+        return name;
     }
 
-    public void setDateDebut(String dateDebut) {
-        this.dateDebut = dateDebut;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDateFin() {
-        return dateFin;
+
+    public int getIdFather() {
+        return idFather;
     }
 
-    public void setDateFin(String dateFin) {
-        this.dateFin = dateFin;
+    public void setIdFather(int idFather) {
+        this.idFather = idFather;
     }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Date getCreation() {
+        return creation;
+    }
+
+    public void setCreation(Date creation) {
+        this.creation = creation;
+    }
+
+    public Date getFin() {
+        return fin;
+    }
+
+    public void setFin(Date fin) {
+        this.fin = fin;
+    }
+
 }

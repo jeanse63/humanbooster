@@ -1,15 +1,13 @@
-package com.humanboster.todolist;
+package com.humanbooster.todolist;
 
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 
 public class HelloWorldApplication extends Application<HelloWorldConfiguration> {
-
     public static void main(String[] args) throws Exception {
         new HelloWorldApplication().run(args);
     }
-
 
     @Override
     public String getName() {
@@ -24,9 +22,8 @@ public class HelloWorldApplication extends Application<HelloWorldConfiguration> 
     @Override
     public void run(HelloWorldConfiguration configuration,
                     Environment environment) {
-        final HelloWorldResource resource = new HelloWorldResource();
+        final ToDoListResource resource = new ToDoListResource();
         environment.jersey().register(resource);
     }
-
 
 }
