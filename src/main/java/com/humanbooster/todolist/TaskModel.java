@@ -72,6 +72,8 @@ public class TaskModel {
                     listTask.remove(i);
                 }
             }
+        } else {
+            listTask.remove(id);
         }
     }
 
@@ -89,7 +91,7 @@ public class TaskModel {
     public String getTaskBaseHTML(int id) {
         Task t = getTask(id);
         if ( t != null) {
-            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> name </a> : " + t.getDesc() + "<br>  </div>";
+            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> "+ t.getName()+" </a> : " + t.getDesc() + "<br>  </div>";
 
         }
         return "No task Found for this id";
