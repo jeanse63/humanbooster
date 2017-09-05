@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TaskModel {
-    static private TaskModel singleton;
     private ArrayList<Task> listTask;
 
 
-    private TaskModel() {
+    public TaskModel() {
         listTask = new ArrayList<Task>();
     }
 
@@ -17,7 +16,7 @@ public class TaskModel {
     }
 
     public String getListTaskHTML() {
-        //TODO affichage pere
+        //TODO affichage pere en cascade
         String taskHTML ="";
         for (int i=0; i <listTask.size();++i){
             taskHTML+= getTaskBaseHTML(i);
@@ -65,7 +64,8 @@ public class TaskModel {
     }
 
     public void delTask(int id) {
-        //TODO del pere propre
+        //TODO delete father clean
+
         if (id == -1) {
             for (int i=0; i <listTask.size();++i){
                 if ( listTask.get(i).getIdFather() == id){
@@ -73,12 +73,6 @@ public class TaskModel {
                 }
             }
         }
-    }
-    static public TaskModel getInstance() {
-        if(singleton == null){
-            singleton = new TaskModel();
-        }
-        return singleton;
     }
 
 

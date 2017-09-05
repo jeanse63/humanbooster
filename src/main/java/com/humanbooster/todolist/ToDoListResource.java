@@ -19,7 +19,8 @@ public class ToDoListResource {
 
     @GET
     public String sayHello() {
-        return list.getInstance().getListTaskHTML();
+        list = new TaskModel();
+        return list.getListTaskHTML();
 
     }
 
@@ -36,16 +37,16 @@ public class ToDoListResource {
             e.printStackTrace();
         }
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
-        return  list.getInstance().addTask(list.getInstance().getTaskId(fatherName) , LocalDateTime.now().toDate() , date, taskDesc, taskTitle) + list.getInstance().getListTaskHTML();
+        return  list.addTask(list.getTaskId(fatherName) , LocalDateTime.now().toDate() , date, taskDesc, taskTitle) + list.getListTaskHTML();
 
     }
 
     @GET
     @Path("/deleteTask/{id}")
     public String deleteTask(@PathParam("id") int id) {
-        list.getInstance().delTask(id);
+        list.delTask(id);
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
-        return "task deleted..." + list.getInstance().getListTaskHTML();
+        return "task deleted..." + list.getListTaskHTML();
 
     }
 
@@ -53,7 +54,7 @@ public class ToDoListResource {
     @GET
     @Path("/showTask/{id}")
     public String showTask(@PathParam("id") int id) {
-        return list.getInstance().getTaskDetailsHTML(id);
+        return list.getTaskDetailsHTML(id);
 
 
     }
