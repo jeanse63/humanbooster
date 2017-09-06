@@ -93,7 +93,8 @@ public class TaskModel {
                 infoFather += "<br> Parent task : " + tFather.getName();
             }
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
-                    + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>";
+                    + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>"
+                    +"<br><div><a href='/ToDoList'>retour</a></div>";
 
         }
         return "No task details Found for this id";
