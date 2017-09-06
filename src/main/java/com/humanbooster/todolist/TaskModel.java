@@ -2,6 +2,7 @@ package com.humanbooster.todolist;
 
 import java.util.ArrayList;
 import java.util.Date;
+//import java.io.Console;
 
 public class TaskModel {
     private ArrayList<Task> listTask;
@@ -79,14 +80,11 @@ public class TaskModel {
     }
 
     public String getTaskDetailsHTML(int id) {
+
         Task t = getTask(id);
-
-        String infoFather = "";
         if ( t != null) {
-
+            String infoFather = "";
             int idFath = t.getIdFather();
-            System.out.println(idFath);
-            infoFather += " ==> idFath : " + idFath;
 
             if (idFath != -1) {
                 Task tFather = getTask(idFath);
@@ -102,7 +100,14 @@ public class TaskModel {
     public String getTaskBaseHTML(int id) {
         Task t = getTask(id);
         if (t != null) {
-            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + "<br>  </div>";
+            String infoFather = "";
+            int idFath = t.getIdFather();
+           
+            if (idFath != -1) {
+                Task tFather = getTask(idFath);
+                infoFather += "<br> Parent task : " + tFather.getName();
+            }
+            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + infoFather + "<br>  </div>";
 
         }
         return "No task base Found for this id";
