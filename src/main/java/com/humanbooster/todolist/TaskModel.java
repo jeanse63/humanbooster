@@ -80,8 +80,21 @@ public class TaskModel {
 
     public String getTaskDetailsHTML(int id) {
         Task t = getTask(id);
-        if (t != null) {
-            return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc() + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + " </div>";
+
+        String infoFather = "";
+        if ( t != null) {
+
+            int idFath = t.getIdFather();
+            System.out.println(idFath);
+            infoFather += " ==> idFath : " + idFath;
+
+            if (idFath != -1) {
+                Task tFather = getTask(idFath);
+                infoFather += "<br> Parent task : " + tFather.getName();
+            }
+            return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
+                    + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>";
+
         }
         return "No task details Found for this id";
     }
