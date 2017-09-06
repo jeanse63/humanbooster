@@ -61,9 +61,19 @@ public class TaskModel {
     }
 
     public String addTask(String nameFather, Date creation, Date fin, String desc, String name) {
-        Task t = new Task(getTaskId(nameFather), listTask.size(), creation, fin, desc, name);
-        listTask.add(t);
-        return "Task Created...";
+        if(getTaskId(nameFather) == -1 ){
+        Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
+            listTask.add(t);
+            return "Task Created...";
+        } else {
+            Task father = getTask(nameFather);
+            if ( father.getFin().compareTo(fin) >= 0){
+                Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
+            listTask.add(t);
+            return "Task Created...";}
+
+        }
+        return "there was a problem";
     }
 
     public void delTask(int id) {
@@ -89,7 +99,8 @@ public class TaskModel {
                 infoFather += "<br> Parent task : " + tFather.getName();
             }
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
-                    + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>";
+                    + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>"
+                    +"<br><div><a href='/ToDoList'>retour</a></div>";
 
         }
         return "No task details Found for this id";
