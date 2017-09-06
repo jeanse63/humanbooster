@@ -6,7 +6,6 @@ import java.util.Date;
 public class TaskModel {
     private ArrayList<Task> listTask;
 
-
     public TaskModel() {
         listTask = new ArrayList<Task>();
     }
@@ -27,7 +26,6 @@ public class TaskModel {
                 "Date Fin : <br><input type ='text' name='taskFin' /><br>" +
                 "Depends de ? <br><input  value='none' type ='text' name='fatherName' /><br>" +
                 "<input type='submit'/><br>" +
-
                 "</form>";
         return taskHTML;
     }
@@ -76,16 +74,13 @@ public class TaskModel {
         }
     }
 
-
     public String getTaskDetailsHTML(int id) {
         Task t = getTask(id);
         if ( t != null) {
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc() + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + " </div>";
         }
         return "No task Found for this id";
-
     }
-
 
     public String getTaskBaseHTML(int id) {
         Task t = getTask(id);
@@ -95,5 +90,4 @@ public class TaskModel {
         }
         return "No task Found for this id";
     }
-
 }
