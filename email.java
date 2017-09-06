@@ -1,1 +1,1 @@
-send email + notif
+send email (Html/non HTML)+ notif 
