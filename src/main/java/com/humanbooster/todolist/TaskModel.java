@@ -68,15 +68,16 @@ public class TaskModel {
 
     public void delTask(int id) {
 
-        if (getTask(id).getIdFather() != -1) {
-            listTask.remove(id);
-        } else {
+        if (getTask(id).getIdFather() == -1) {
+        
             for (int i = 0; i < listTask.size(); ++i) {
                 if (listTask.get(i).getIdFather() == id) {
                     listTask.remove(i);
                 }
             }
         }
+
+        listTask.remove(id);
     }
 
     public String getTaskDetailsHTML(int id) {
