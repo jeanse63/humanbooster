@@ -17,11 +17,15 @@ import java.util.Date;
 public class ToDoListResource {
     private TaskModel list;
 
+    public ToDoListResource() {
+
+            list = new TaskModel();
+    }
+
+
     @GET
     public String sayHello() {
-        list = new TaskModel();
         return list.getListTaskHTML();
-
     }
 
     @POST
@@ -38,7 +42,7 @@ public class ToDoListResource {
             e.printStackTrace();
         }
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
-        return  list.addTask(list.getTaskId(fatherName) , LocalDateTime.now().toDate() , date, taskDesc, taskTitle) + list.getListTaskHTML();
+        return list.addTask(list.getTaskId(fatherName), LocalDateTime.now().toDate(), date, taskDesc, taskTitle) + list.getListTaskHTML();
 
     }
 
@@ -48,7 +52,6 @@ public class ToDoListResource {
         list.delTask(id);
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
         return "task deleted..." + list.getListTaskHTML();
-
     }
 
 

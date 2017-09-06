@@ -16,10 +16,14 @@ public class TaskModel {
 
     public String getListTaskHTML() {
         //TODO affichage pere en cascade
-        String taskHTML ="";
-        for (int i=0; i <listTask.size();++i){
-            taskHTML+= getTaskBaseHTML(i);
-            taskHTML+= "<a href='/ToDoList/deleteTask/" + i + "'> X </a> ";
+        String taskHTML = "";
+        if (listTask.size() != 0) {
+            for (int i = 0; i < listTask.size(); ++i) {
+                taskHTML += getTaskBaseHTML(i);
+                taskHTML += "<a href='/ToDoList/deleteTask/" + i + "'> X </a> ";
+            }
+        } else {
+            taskHTML += "No tasks in database";
         }
         taskHTML += "<form action ='/ToDoList' method='POST'> Add Task : <br> Name : <br><input type ='text' name='taskTitle' /><br>" +
                 "Description : <br> <input type ='text' name='taskDesc' /><br>" +
@@ -31,8 +35,8 @@ public class TaskModel {
     }
 
     public Task getTask(String name) {
-        for(Task t : listTask){
-            if ( t.getName().compareTo(name) == 0){
+        for (Task t : listTask) {
+            if (t.getName().compareTo(name) == 0) {
                 return t;
             }
         }
@@ -40,8 +44,8 @@ public class TaskModel {
     }
 
     public Task getTask(int id) {
-        for(Task t : listTask){
-            if ( t.getId() == id){
+        for (Task t : listTask) {
+            if (t.getId() == id) {
                 return t;
             }
         }
@@ -49,45 +53,45 @@ public class TaskModel {
     }
 
     public int getTaskId(String name) {
-        if( name.compareTo("none") == 0){
+        if (name.compareTo("none") == 0) {
             return -1;
         }
         return getTask(name).getId();
     }
 
-    public String addTask(int idFather, Date creation, Date fin, String desc, String name){
-        Task t = new Task (idFather,listTask.size(),  creation,  fin,  desc,  name);
+    public String addTask(int idFather, Date creation, Date fin, String desc, String name) {
+        Task t = new Task(idFather, listTask.size(), creation, fin, desc, name);
         listTask.add(t);
         return "Task Created...";
     }
 
     public void delTask(int id) {
-        //id != idfather
-        if (id == -1) {
-            for (int i=0; i <listTask.size();++i){
-                if ( listTask.get(i).getIdFather() == id){
+
+        if (getTask(id).getIdFather() != -1) {
+            listTask.remove(id);
+        } else {
+            for (int i = 0; i < listTask.size(); ++i) {
+                if (listTask.get(i).getIdFather() == id) {
                     listTask.remove(i);
                 }
             }
-        } else {
-            listTask.remove(id);
         }
     }
 
     public String getTaskDetailsHTML(int id) {
         Task t = getTask(id);
-        if ( t != null) {
+        if (t != null) {
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc() + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + " </div>";
         }
-        return "No task Found for this id";
+        return "No task details Found for this id";
     }
 
     public String getTaskBaseHTML(int id) {
         Task t = getTask(id);
-        if ( t != null) {
-            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> "+ t.getName()+" </a> : " + t.getDesc() + "<br>  </div>";
+        if (t != null) {
+            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + "<br>  </div>";
 
         }
-        return "No task Found for this id";
+        return "No task base Found for this id";
     }
 }
