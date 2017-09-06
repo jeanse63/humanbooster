@@ -1,1 +1,1 @@
-send email (Html/non HTML) + notif + (recv)
+send email (Html/non HTML) (- bug admin) 
