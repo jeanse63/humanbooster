@@ -42,7 +42,7 @@ public class ToDoListResource {
             e.printStackTrace();
         }
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
-        return list.addTask(list.getTaskId(fatherName), LocalDateTime.now().toDate(), date, taskDesc, taskTitle) + list.getListTaskHTML();
+        return list.addTask(fatherName, LocalDateTime.now().toDate(), date, taskDesc, taskTitle) + list.getListTaskHTML();
 
     }
 
