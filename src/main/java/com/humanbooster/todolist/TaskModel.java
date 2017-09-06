@@ -59,23 +59,20 @@ public class TaskModel {
         return getTask(name).getId();
     }
 
-    public String addTask(int idFather, Date creation, Date fin, String desc, String name) {
-        Task t = new Task(idFather, listTask.size(), creation, fin, desc, name);
+    public String addTask(String nameFather, Date creation, Date fin, String desc, String name) {
+        Task t = new Task(getTaskId(nameFather), listTask.size(), creation, fin, desc, name);
         listTask.add(t);
         return "Task Created...";
     }
 
     public void delTask(int id) {
-
         if (getTask(id).getIdFather() == -1) {
-        
             for (int i = 0; i < listTask.size(); ++i) {
                 if (listTask.get(i).getIdFather() == id) {
                     listTask.remove(i);
                 }
             }
         }
-
         listTask.remove(id);
     }
 
