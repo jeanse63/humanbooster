@@ -103,7 +103,7 @@ public class TaskModel {
            
             if (idFath != -1) {
                 Task tFather = getTask(idFath);
-                infoFather += " Parent task : " + tFather.getName();
+                infoFather += " - Parent task : " + tFather.getName();
             }
             return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + infoFather + "<br>  </div>";
 
