@@ -8,6 +8,7 @@
 # ajout JS
 .idea/
 *.orig
+*.iml
 target/
 
 # User-specific stuff:
