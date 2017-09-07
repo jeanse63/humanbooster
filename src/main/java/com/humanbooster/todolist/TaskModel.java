@@ -72,7 +72,6 @@ public class TaskModel {
                 listTask.add(t);
                 return "Task Created...";
             }
-
         }
         return "there was a problem";
     }
@@ -102,7 +101,6 @@ public class TaskModel {
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
                     + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>"
                     + "<br><div><a href='/ToDoList'>retour</a></div>";
-
         }
         return "No task details Found for this id";
     }

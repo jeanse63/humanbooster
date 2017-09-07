@@ -57,7 +57,5 @@ public class ToDoListResource {
     @Path("/showTask/{id}")
     public String showTask(@PathParam("id") int id) {
         return list.getTaskDetailsHTML(id);
-
-
     }
 }
