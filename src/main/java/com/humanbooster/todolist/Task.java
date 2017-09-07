@@ -3,6 +3,7 @@ package com.humanbooster.todolist;
 import java.util.Date;
 
 public class Task {
+
     private int idFather;
 
     private int id;
@@ -10,9 +11,6 @@ public class Task {
     private Date fin;
     private String desc;
     private String name;
-
-
-
 
     public Task(int idFather, int id, Date creation, Date fin, String desc, String name) {
         this.idFather = idFather;
@@ -39,7 +37,6 @@ public class Task {
         this.name = name;
     }
 
-
     public int getIdFather() {
         return idFather;
     }
@@ -48,7 +45,6 @@ public class Task {
         this.idFather = idFather;
     }
 
-
     public int getId() {
         return id;
     }
@@ -56,6 +52,7 @@ public class Task {
     public void setId(int id) {
         this.id = id;
     }
+
     public Date getCreation() {
         return creation;
     }
@@ -71,5 +68,4 @@ public class Task {
     public void setFin(Date fin) {
         this.fin = fin;
     }
-
 }

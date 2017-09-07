@@ -61,17 +61,17 @@ public class TaskModel {
     }
 
     public String addTask(String nameFather, Date creation, Date fin, String desc, String name) {
-        if(getTaskId(nameFather) == -1 ){
-        Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
+        if (getTaskId(nameFather) == -1) {
+            Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
             listTask.add(t);
             return "Task Created...";
         } else {
             Task father = getTask(nameFather);
-            if ( father.getFin().compareTo(fin) >= 0){
+            if (father.getFin().compareTo(fin) >= 0) {
                 Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
-            listTask.add(t);
-            return "Task Created...";}
-
+                listTask.add(t);
+                return "Task Created...";
+            }
         }
         return "there was a problem";
     }
@@ -90,7 +90,7 @@ public class TaskModel {
     public String getTaskDetailsHTML(int id) {
 
         Task t = getTask(id);
-        if ( t != null) {
+        if (t != null) {
             String infoFather = "";
             int idFath = t.getIdFather();
 
@@ -100,8 +100,7 @@ public class TaskModel {
             }
             return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
                     + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>"
-                    +"<br><div><a href='/ToDoList'>retour</a></div>";
-
+                    + "<br><div><a href='/ToDoList'>retour</a></div>";
         }
         return "No task details Found for this id";
     }
@@ -111,10 +110,10 @@ public class TaskModel {
         if (t != null) {
             String infoFather = "";
             int idFath = t.getIdFather();
-           
+
             if (idFath != -1) {
                 Task tFather = getTask(idFath);
-                infoFather += " Parent task : " + tFather.getName();
+                infoFather += " - Parent task : " + tFather.getName();
             }
             return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + infoFather + "<br>  </div>";
 

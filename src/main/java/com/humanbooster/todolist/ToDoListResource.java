@@ -1,6 +1,5 @@
 package com.humanbooster.todolist;
 
-
 import org.joda.time.LocalDateTime;
 
 import javax.ws.rs.*;
@@ -15,13 +14,12 @@ import java.util.Date;
 @Path("/ToDoList")
 @Produces(MediaType.TEXT_HTML)
 public class ToDoListResource {
+
     private TaskModel list;
 
     public ToDoListResource() {
-
             list = new TaskModel();
     }
-
 
     @GET
     public String sayHello() {
@@ -59,9 +57,5 @@ public class ToDoListResource {
     @Path("/showTask/{id}")
     public String showTask(@PathParam("id") int id) {
         return list.getTaskDetailsHTML(id);
-
-
     }
-
-
 }
