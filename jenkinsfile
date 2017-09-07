@@ -1,0 +1,13 @@
+node {
+	stage('checkout'){
+		git"https://github.com/jeanse63/humanbooster"
+		sh 'echo "do stuff before build"
+	}
+	stage ('test'){
+		sh 'mvn test'
+		junit(testREsults : '**/target/**/TEST*.xml',allowEmptyResults: true)
+	}
+	stage('build'){
+		sh'mvn package -DskipTests'
+	}
+}
