@@ -61,19 +61,26 @@ public class TaskModel {
     }
 
     public String addTask(String nameFather, Date creation, Date fin, String desc, String name) {
-        if (getTaskId(nameFather) == -1) {
-            Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
-            listTask.add(t);
-            return "Task Created...";
-        } else {
-            Task father = getTask(nameFather);
-            if (father.getFin().compareTo(fin) >= 0) {
-                Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
-                listTask.add(t);
-                return "Task Created...";
+        Task father = getTask(nameFather);
+        if (father != null) {
+
+            if (father.getIdFather() != -1) {
+                if (father.getFin().compareTo(fin) >= 0) {
+                    Task t = new Task(father.getId(), listTask.size(), creation, fin, desc, name);
+                    listTask.add(t);
+                    return "Task Created...";
+                }
+                return "beeeeeeep you die after you father idiot";
             }
+            return "no grand daughters you bitch";
         }
-        return "there was a problem";
+        Task t = new Task(-1, listTask.size(), creation, fin, desc, name);
+        listTask.add(t);
+        return "Task Created...";
+    }
+
+    public int getNumberTasks() {
+        return listTask.size();
     }
 
     public void delTask(int id) {
