@@ -25,8 +25,7 @@ public class TestTaskModel {
         Date dateFin = new Date();
 
         String result = list.addTask("none", dateCrea, dateFin, "Pour tests", "Testeur");
-
-        assertEquals("Creation d'une task - ok", "Task Created...", result);
+        assertEquals(1,list.getNumberTasks());
     }
 
     @Test
@@ -40,7 +39,6 @@ public class TestTaskModel {
         String result = list.addTask("none", dateCrea, dateFin, "Pour tests", "Testeur");
         String result1 = list.addTask("Testeur", dateCrea, dateFin, "Pour tests", "Testeur1");
         String result2 = list.addTask("Testeur1", dateCrea, dateFin, "Pour tests", "Testeur2");
-
-        assertEquals("Creation d'une task fille dans une task fille", "there was a problem", result2);
+        assertEquals(2,list.getNumberTasks());
     }
 }
