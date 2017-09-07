@@ -8,6 +8,6 @@ sh 'mvn test'
 junit(testREsults : '**/target/**/TEST*.xml',allowEmptyResults: true)
 }
 stage('build'){
-sh'mvn package -DskipTests'
+sh 'mvn package -DskipTests'
 }
 }
