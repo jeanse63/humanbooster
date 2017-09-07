@@ -6,10 +6,10 @@ import static org.junit.Assert.assertEquals;
 
 public class TaskTest {
 
-    @Test
+  /*  @Test
     public void DeleteTask(){
 
         Task task = new Task(-1,1,06/09/2017, 10/09/2017, "tache 1", "tache 1");
         assertEquals();
-    }
+    }*/
 }
