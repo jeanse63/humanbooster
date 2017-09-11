@@ -26,11 +26,11 @@ public class TaskModel {
         } else {
             taskHTML += "No tasks in database";
         }
-        taskHTML += "<form action ='/ToDoList' method='POST'> Add Task : <br> Name : <br><input type ='text' name='taskTitle' /><br>" +
-                "Description : <br> <input type ='text' name='taskDesc' /><br>" +
-                "Date Fin : <br><input type ='text' name='taskFin' /><br>" +
-                "Depends de ? <br><input  value='none' type ='text' name='fatherName' /><br>" +
-                "<input type='submit'/><br>" +
+        taskHTML += "<form action ='/ToDoList' method='POST'> Add Task : <br> Name : <br><input id='taskName' type ='text' name='taskTitle' /><br>" +
+                "Description : <br> <input id='taskDesc'  type ='text' name='taskDesc' /><br>" +
+                "Date Fin : <br><input  id='taskDate' type ='text' name='taskFin' /><br>" +
+                "Depends de ? <br><input  id='taskFather'  value='none' type ='text' name='fatherName' /><br>" +
+                "<input  id='submitButton'  type='submit'/><br>" +
                 "</form>";
         return taskHTML;
     }
