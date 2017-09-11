@@ -31,10 +31,11 @@ public class TestTaskBySelenium {
         varTaskName.sendKeys(refTaskDate);
         */
 
+        // Appui du bouton pour valider le formulaire :
         WebElement varButton  = driver.findElement(By.id("submitButton"));
         varButton.click();
 
-        // Nouvelle page :
+        // Nouvelle page, on cherche dedans :
         varTaskName  = driver.findElement(By.id("task-0"));
 
         assertEquals("Nom de task attendu", refTaskName, varTaskName.getText());
