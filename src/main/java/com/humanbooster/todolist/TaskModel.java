@@ -105,7 +105,7 @@ public class TaskModel {
                 Task tFather = getTask(idFath);
                 infoFather += "<br> Parent task : " + tFather.getName();
             }
-            return "<div>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
+            return "<div id='task-detail'>Tache -> Id : " + t.getId() + " <br> name  : " + t.getName() + " <br> Description :" + t.getDesc()
                     + "<br> Creation : " + t.getCreation().toString() + "<br> fin : " + t.getFin().toString() + infoFather + " </div>"
                     + "<br><div><a href='/ToDoList'>retour</a></div>";
         }
@@ -122,7 +122,7 @@ public class TaskModel {
                 Task tFather = getTask(idFath);
                 infoFather += " - Parent task : " + tFather.getName();
             }
-            return "<div>Tache -> <a href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + infoFather + "<br>  </div>";
+            return "<div>Tache -> <a id='task-"+ t.getId() + "' href='/ToDoList/showTask/" + t.getId() + "'> " + t.getName() + " </a> : " + t.getDesc() + infoFather + "<br>  </div>";
 
         }
         return "No task base Found for this id";
