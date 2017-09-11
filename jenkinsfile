@@ -10,7 +10,7 @@ node {
         stage('Testing') {
             echo 'Testing'
             sh 'mvn test'
-            #junit(testREsults : '**/target/**/TEST*.xml',allowEmptyResults: true)
+            junit(testREsults : '**/target/**/TEST*.xml',allowEmptyResults: true)
             echo 'Testing - publish coverage results'
         }
 
