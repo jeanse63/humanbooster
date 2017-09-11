@@ -17,7 +17,7 @@ public class TaskModel {
 
     public String getListTaskHTML() {
         //TODO affichage pere en cascade
-        String taskHTML = "<img src=\"ressources/9y60D.gif\" alt=\"lick lick lick my balls\" style=\"width:128px;height:128px;\" >";
+        String taskHTML = "";
         if (listTask.size() != 0) {
             for (int i = 0; i < listTask.size(); ++i) {
                 taskHTML += getTaskBaseHTML(i);
