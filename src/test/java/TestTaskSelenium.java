@@ -1,9 +1,13 @@
 
 
 import org.junit.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import static org.junit.Assert.assertEquals;
 
 
 public class TestTaskSelenium {
@@ -12,30 +16,26 @@ public class TestTaskSelenium {
     public void testerCascadeTask() {
         // declaration and instantiation of objects/variables
         System.setProperty("webdriver.firefox.marionette", "C:\\geckodriver.exe");
+        //System.setProperty("webdriver.firefox.marionette", "false");
         WebDriver driver = new FirefoxDriver();
-        //comment the above 2 lines and uncomment below 2 lines to use Chrome
-        //System.setProperty("webdriver.chrome.driver","G:\\chromedriver.exe");
-        //WebDriver driver = new ChromeDriver();
 
-        String baseUrl = "http://demo.guru99.com/selenium/newtours/";
-        String expectedTitle = "Welcome: Mercury Tours";
-        String actualTitle = "";
-
-        // launch Fire fox and direct it to the Base URL
+        //String baseUrl = "http://46.101.223.195/ToDoList";
+        String baseUrl = "http://localhost:8080/ToDoList";
         driver.get(baseUrl);
 
-        // get the actual value of the title
-        actualTitle = driver.getTitle();
+        // Remplissage du formulaire :
+        String refTaskName = "manger";
+        WebElement varTaskName  = driver.findElement(By.id("taskName"));
+        varTaskName.sendKeys(refTaskName);
 
-        /*
-         * compare the actual title of the page with the expected one and print
-         * the result as "Passed" or "Failed"
-         */
-        if (actualTitle.contentEquals(expectedTitle)) {
-            System.out.println("Test Passed!");
-        } else {
-            System.out.println("Test Failed");
-        }
+        // Appui du bouton pour valider le formulaire :
+        WebElement varButton  = driver.findElement(By.id("submitButton"));
+        varButton.click();
+
+        // Nouvelle page, on cherche dedans :
+        varTaskName  = driver.findElement(By.id("task-0"));
+
+        assertEquals("Nom de task attendu", refTaskName, varTaskName.getText());
 
         //close Fire fox
         driver.close();

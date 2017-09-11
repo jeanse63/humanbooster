@@ -11,7 +11,6 @@ public class TestTaskBySelenium {
     @Test
     public void testerTaskNavigChrome() {
 
-        //System.setProperty("webdriver.chrome.driver",".\\LIBDriverBrowser\\chromedriverWin.exe");
         System.setProperty("webdriver.chrome.driver",".\\LIB\\chromedriver-windows");
 
         WebDriver driver = new ChromeDriver();
