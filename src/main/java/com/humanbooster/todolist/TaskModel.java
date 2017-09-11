@@ -17,22 +17,7 @@ public class TaskModel {
 
     public String getListTaskHTML() {
         //TODO affichage pere en cascade
-        String taskHTML = "                           .       .<br>" +
-                "                           / `.   .' \\<br>" +
-                "                   .---.  <    > <    >  .---.<br>" +
-                "                   |    \\  \\ - ~ ~ - /  /    |<br>" +
-                "                    ~-..-~             ~-..-~<br>" +
-                "                \\~~~\\.'                    `./~~~/<br>" +
-                "                 \\__/                        \\__/<br>" +
-                "                  /                  .-    .  \\<br>" +
-                "           _._ _.-    .-~ ~-.       /       }   \\/~~~/<br>" +
-                "       _.-'q  }~     /       }     {        ;    \\__/<br>" +
-                "      {'__,  /      (       /      {       /      `. ,~~|   .     .<br>" +
-                "       `''''='~~-.__(      /_      |      /- _      `..-'   \\\\   //<br>" +
-                "                   / \\   =/  ~~--~~{    ./|    ~-.     `-..__\\\\_//_.-'<br>" +
-                "                  {   \\  +\\         \\  =\\ (        ~ - . _ _ _..---~<br>" +
-                "                  |  | {   }         \\   \\_\\<br>" +
-                "                 '---.o___,'       .o___,'     \"Stegosaurus\"<br>";
+        String taskHTML = "<img src=\"ressources/giphy.gif\" alt=\"Mountain View\" >";
         if (listTask.size() != 0) {
             for (int i = 0; i < listTask.size(); ++i) {
                 taskHTML += getTaskBaseHTML(i);
