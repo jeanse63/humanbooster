@@ -1,4 +1,3 @@
-<<<<<<< HEAzkfvonjkdsndksnbjdsnbjnZBVD
 aeeeeaaaBEQBSDB
 =======B
 jbdvdhvqBfhbveqhfvbrezfhezucbuzebfaaaa
