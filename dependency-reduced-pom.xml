@@ -19,7 +19,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>com.humanboster.todolist.HelloWorldApplication</mainClass>
+                  <mainClass>com.humanbooster.todolist.HelloWorldApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>

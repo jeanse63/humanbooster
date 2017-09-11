@@ -18,6 +18,12 @@ node {
 	    sh 'mvn package -DskipTests'
 	}
 
+	stage('release'){
+	    sh 'docker build ./ -t todolistdocker'
+	    sh 'docker rm -f todolistdock | true'
+	    sh 'docker run -d --name todolistdock -p 80:8080 todolistdocker'
+	}
+
   } catch (e) {
     // If there was an exception thrown, the build failed
     currentBuild.result = "FAILED"
