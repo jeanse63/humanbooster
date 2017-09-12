@@ -18,7 +18,7 @@ public class TestTaskBySelenium {
     @Before
     public void setUp() throws Exception {
         String os = System.getProperty("os.name").toLowerCase().split(" ")[0];
-        String pathDriver = Paths.get(".").toAbsolutePath().normalize().toString()+"/LIB/chromedriver"+os;
+        String pathDriver = Paths.get(".").toAbsolutePath().normalize().toString()+"/LIB/chromedriver-"+os;
         System.setProperty("webdriver.chome.driver", pathDriver);
 
         ChromeOptions chromeOptions = new ChromeOptions();
@@ -30,9 +30,9 @@ public class TestTaskBySelenium {
     @Test
     public void testerTaskNavigChrome() {
 
+        /* OLD version :
         System.setProperty("webdriver.chrome.driver",".\\LIB\\chromedriver-windows");
-
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(); */
 
         String baseUrl = "localhost:8080/ToDoList";
         //String baseUrl = "http://46.101.223.195/ToDoList";
