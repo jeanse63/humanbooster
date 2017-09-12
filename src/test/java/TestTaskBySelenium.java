@@ -4,14 +4,27 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
 public class TestTaskBySelenium {
 
+    private WebDriver driver;
+
     @Before
     public void setUp() throws Exception {
+        String os = System.getProperty("os.name").toLowerCase().split(" ")[0];
+        String pathDriver = Paths.get(".").toAbsolutePath().normalize().toString()+"/LIB/chromedriver"+os;
+        System.setProperty("webdriver.chome.driver", pathDriver);
 
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--Headless");
+        driver = new ChromeDriver(chromeOptions);
+        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
 
     @Test
@@ -19,7 +32,7 @@ public class TestTaskBySelenium {
 
         System.setProperty("webdriver.chrome.driver",".\\LIB\\chromedriver-windows");
 
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
 
         String baseUrl = "localhost:8080/ToDoList";
         //String baseUrl = "http://46.101.223.195/ToDoList";
@@ -51,5 +64,6 @@ public class TestTaskBySelenium {
 
         //close browser
         driver.close();
+        driver.quit();
     }
 }
