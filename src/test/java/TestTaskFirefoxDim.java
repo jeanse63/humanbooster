@@ -11,12 +11,6 @@ import static org.junit.Assert.assertEquals;
 
 public class TestTaskFirefoxDim {
 
-    @Before
-    public beforeTest(){
-
-        
-    }
-
     @Test
     public void testBase() {
 
