@@ -41,9 +41,9 @@ node {
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-ID') {
              sh 'docker push gbformhb/todolistgb'
         }
-         sh 'docker -H=165.227.133.134 pull gbformhb/todolistgb'
-         sh 'docker -H=165.227.133.134 rm -f todolist_gb | true'
-         sh 'docker -H=165.227.133.134 run -d --name todolist_gb -p 8082:8080 gbformhb/todolistgb'
+        sh 'docker -H=165.227.133.134 pull gbformhb/todolistgb'
+        sh 'docker -H=165.227.133.134 rm -f todolist_gb | true'
+        sh 'docker -H=165.227.133.134 run -d --name todolist_gb -p 8082:8080 gbformhb/todolistgb'
     }
 
   } catch (e) {

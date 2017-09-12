@@ -20,7 +20,6 @@ public class TestTaskBySelenium {
     public void setUp() throws Exception {
         String os = System.getProperty("os.name").toLowerCase().split(" ")[0];
 
-        //String pathDriver = Paths.get(".").toAbsolutePath().normalize().toString()+"\\LIB\\chromedriver-"+os;
         String pathDriver = Paths.get(".").toAbsolutePath().normalize().toString()+"/LIB/chromedriver-"+os;
         System.out.println(pathDriver);
 
