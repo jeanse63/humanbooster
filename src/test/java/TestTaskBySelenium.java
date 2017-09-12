@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -65,9 +66,14 @@ public class TestTaskBySelenium {
         /*
         assertEquals("Date de task attendue", refTaskDate, varTaskDate.getText());
         */
+    }
+
+    @After
+    public void setDown() throws Exception {
 
         //close browser
         driver.close();
         driver.quit();
     }
+
 }
