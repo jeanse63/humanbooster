@@ -32,11 +32,13 @@ public class ToDoListResource {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
         Date date = null;
+        if(taskFin.compareTo("") == 0){
+            taskFin = "31/12/2099";
+        }
         try {
             date = df.parse(taskFin);
 
         } catch (ParseException e) {
-
             e.printStackTrace();
         }
         URI redirect = UriBuilder.fromUri("/ToDoList").build();
