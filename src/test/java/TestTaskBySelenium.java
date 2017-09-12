@@ -22,7 +22,7 @@ public class TestTaskBySelenium {
         System.setProperty("webdriver.chome.driver", pathDriver);
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.addArguments("--Headless");
+        chromeOptions.addArguments("--headless");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
     }
