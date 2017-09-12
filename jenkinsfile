@@ -32,7 +32,7 @@ node {
         //sh 'docker rm -f todolist_test | true'
         //sh 'docker run -d --name todolist_test -p 80:8080 gbformhb/todolistgb'
 
-        sh 'docker login gbformhb -p Onvavoir-63'
+        sh 'docker login -u gbformhb -p Onvavoir-63'
         sh 'docker push gbformhb/todolistgb'
         sh 'docker -H=165.227.133.134 pull gbformhb/todolistgb'
         sh 'docker -H=165.227.133.134 rm -f todolist_gb | true'
