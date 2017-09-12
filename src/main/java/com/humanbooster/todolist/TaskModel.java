@@ -1,5 +1,6 @@
 package com.humanbooster.todolist;
 
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
 //import java.io.Console;
@@ -16,8 +17,10 @@ public class TaskModel {
     }
 
     public String getListTaskHTML() {
-        //TODO affichage pere en cascade
-        String taskHTML = "";
+        //TODO affichage pere en
+        String pathToGif = Paths.get(".").toAbsolutePath().normalize().toString()+"\\ressources\\Ccdimage.jpg";
+        String taskHTML = "<div id='gifgifgif'><img src='"+pathToGif +"' alt='rickrocks' style='width:304px;height:228px;'></div>";
+        System.out.println(pathToGif);
         if (listTask.size() != 0) {
             for (int i = 0; i < listTask.size(); ++i) {
                 taskHTML += getTaskBaseHTML(i);
