@@ -22,9 +22,7 @@ node {
 	    // Pour gagner un peu de memeoire, on arrete l'ancien conteneur maintenant
 	    sh 'docker rm -f todolistdock | true'
 
-        app = docker.build("gbformhb/todolistgb")
-	    ///sh 'docker build ./ -t gbformhb/todolistgb'
-
+	    sh 'docker build ./ -t gbformhb/todolistgb'
 	    sh 'docker run -d --name todolistdock -p 8080:8080 gbformhb/todolistgb'
 	}
 
@@ -37,13 +35,12 @@ node {
         //sh 'docker run -d --name todolist_test -p 80:8080 gbformhb/todolistgb'
 
         // Pas beau ! : sh 'docker login -u gbformhb -p Onvavoir-63'
-        // du coup :
-        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-ID') {
-             sh 'docker push gbformhb/todolistgb'
-        }
-         sh 'docker -H=165.227.133.134 pull gbformhb/todolistgb'
-         sh 'docker -H=165.227.133.134 rm -f todolist_gb | true'
-         sh 'docker -H=165.227.133.134 run -d --name todolist_gb -p 8082:8080 gbformhb/todolistgb'
+
+
+        sh 'docker push gbformhb/todolistgb'
+        sh 'docker -H=165.227.133.134 pull gbformhb/todolistgb'
+        sh 'docker -H=165.227.133.134 rm -f todolist_gb | true'
+        sh 'docker -H=165.227.133.134 run -d --name todolist_gb -p 8082:8080 gbformhb/todolistgb'
     }
 
   } catch (e) {
