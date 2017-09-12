@@ -21,7 +21,7 @@ node {
 	stage('release'){
 	    sh 'docker build ./ -t todolistdocker'
 	    sh 'docker rm -f todolistdock | true'
-	    sh 'docker run -d --name todolistdock -p 80:8080 todolistdocker'
+	    sh 'docker run -d --name todolistdock -p 8080:8080 todolistdocker'
 	}
 
 	stage('functional tests') {
