@@ -18,23 +18,22 @@ node {
 	    sh 'mvn package -DskipTests'
 	}
 
-	stage('release'){
-	    sh 'docker build ./ -t todolistdocker'
+	stage('release (test server)'){
+	    sh 'docker build ./ -t gbformhb/todolistgb'
 	    sh 'docker rm -f todolistdock | true'
-	    sh 'docker run -d --name todolistdock -p 8080:8080 todolistdocker'
+	    sh 'docker run -d --name todolistdock -p 8080:8080 gbformhb/todolistgb'
 	}
 
 	stage('functional tests') {
 	    sh 'mvn -Dtest=TestTaskBySelenium test'
 	}
-        stage('deploy (test server)'){
-            sh 'docker rm -f todolist_test | true'
-            sh 'docker run -d --name todolist_test -p 80:8080 todolistdocker'
-        }
 
-    stage('deploy (test server)'){
-        sh 'docker rm -f todolist_test | true'
-        sh 'docker run -d --name todolist_test -p 80:8080 todolistdocker'
+    stage('deploy (Prod server)'){
+        //sh 'docker rm -f todolist_test | true'
+        //sh 'docker run -d --name todolist_test -p 80:8080 todolistdocker'
+
+        sh 'docker push gbformhb/todolistgb'
+        
     }
 
   } catch (e) {
