@@ -11,6 +11,8 @@ import static org.junit.Assert.assertEquals;
 
 public class TestTaskFirefoxDim {
 
+    /*
+
     @Before
     public beforeTest(){
 
@@ -31,26 +33,27 @@ public class TestTaskFirefoxDim {
         WebElement varTaskName  = driver.findElement(By.id("taskName"));
         varTaskName.sendKeys(refTaskName);
 
-        /*
+
         String refTaskDate = "11/09/2017";
         WebElement varTaskDate  = driver.findElement(By.id("taskDate"));
         varTaskName.sendKeys(refTaskDate);
-        */
+
 
         // Appui du bouton pour valider le formulaire :
-        WebElement varButton  = driver.findElement(By.id("submitButton"));
-        varButton.click();
+        //WebElement varButton  = driver.findElement(By.id("submitButton"));
+        //varButton.click();
 
         // Nouvelle page, on cherche dedans :
-        varTaskName  = driver.findElement(By.id("task-0"));
+        //varTaskName  = driver.findElement(By.id("task-0"));
 
-        assertEquals("Nom de task attendu", refTaskName, varTaskName.getText());
+        //assertEquals("Nom de task attendu", refTaskName, varTaskName.getText());
 
-        /*
-        assertEquals("Date de task attendue", refTaskDate, varTaskDate.getText());
-        */
+
+        //assertEquals("Date de task attendue", refTaskDate, varTaskDate.getText());
+
 
         //close browser
         driver.close();
     }
+    */
 }
