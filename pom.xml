@@ -35,7 +35,7 @@
                 <version>2.2</version>
                 <configuration>
                     <excludes>
-                        <exclude>**/FunctionalTest.java</exclude>
+                        <exclude>**/TestTaskBySelenium.java</exclude>
                     </excludes>
                 </configuration>
             </plugin>
